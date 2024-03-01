@@ -1,63 +1,61 @@
 // src/index.ts
 console.log("Hello, TypeScript!");
 
-// Vars
+// Variables with basic types
 const username: string = "JohnDoe";
 const userAge: number = 30;
 const isEmployed: boolean = true;
 
 console.log(username, userAge, isEmployed);
 
-// Functions, params, returns
+// Functions with typed parameters and return types
 function sum(a: number, b: number): number {
-   return a + b
+    return a + b;
 }
-
-console.log(sum(5, 3));
+console.log(`Suma de 5 + 3: ${sum(5, 3)}`);
 
 function fullName(firstName: string, lastName: string): string {
-   return `${firstName} ${lastName}`;
+    return `${firstName} ${lastName}`;
 }
-
-console.log(fullName("Jane", "Doe"));
+console.log(`Nombre completo: ${fullName("Jane", "Doe")}`);
 
 function isEven(num: number): boolean {
-   return num % 2 == 0;
+    return num % 2 === 0;
 }
+console.log(`¿Es 4 un número par? ${isEven(4)}`);
 
-console.log(isEven(4));
-
-// Interfaces
+// Interfaces to define the structure of objects
 interface IUser {
-   id: number;
-   name: string;
+    id: number;
+    name: string;
 }
 
-function createUser(user: IUser): IUser {
-   return user;
-}
+// Creating and using objects based on interfaces
+const user: IUser = {
+    id: 1,
+    name: "John Doe"
+};
+console.log(`Usuario: ${user.name}`);
 
-console.log(createUser({id: 1, name: "John Doe"}));
-
-// Types
+// Custom types and type unions
 type ProductType = "book" | "furniture" | "electronics";
 
 interface IProduct {
-   id: number;
-   name: string;
-   price: number;
-   type: ProductType;
+    id: number;
+    name: string;
+    price: number;
+    type: ProductType;
 }
 
 function showProduct(product: IProduct): string {
-   return `Product: ${product.name}, Type: ${product.type}, Price: $${product.price}`;
+    return `Producto: ${product.name}, Tipo: ${product.type}, Precio: $${product.price}`;
 }
 
+// Using custom types to create an object
 const myProduct: IProduct = {
-   id: 1,
-   name: "TypeScript",
-   price: 29.99,
-   type: "book"
+    id: 1,
+    name: "Programming TypeScript",
+    price: 49.99,
+    type: "book"
 };
-
 console.log(showProduct(myProduct));
